@@ -37,9 +37,12 @@ int main() {
 			printf("Entrer le numéro d'inscription de l'étudiant : ");
 			scanf("%[^\n]",mpianatra[i].numInscription);
 			
+			printf("Entrer le compte gitHub de l'étudiant : ");
+			scanf("%[^\n]",mpianatra[i].hub);
+			
 			fprintf(file, 
-			"%s ; %s ; %s ; %s ; %s ; %s ; %s",
-			mpianatra[i].nom,mpianatra[i].prenom,mpianatra[i].parcours, mpianatra[i].grade, mpianatra[i].niveau, mpianatra[i].numInscription,"\n");
+			"%s ; %s ; %s ; %s ; %s ; %s ; %s ; %s",
+			mpianatra[i].nom,mpianatra[i].prenom,mpianatra[i].parcours, mpianatra[i].grade, mpianatra[i].niveau, mpianatra[i].numInscription,mpianatra[i].hub,"\n");
 		}
 	}
 	else{
@@ -80,6 +83,7 @@ int main() {
 	}
 	
 	printf("Vos résultats sont stockés dans le fichier.csv\n");
+	printf("Les tries sont en bas après les informations aléatoire\n");
 	
 	fclose(file);
 	return 0;

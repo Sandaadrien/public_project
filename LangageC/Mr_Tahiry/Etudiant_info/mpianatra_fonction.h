@@ -9,6 +9,7 @@ typedef struct Mpianatra {
 	char grade[256];
 	char niveau[256];
 	char numInscription[256];
+	char hub[256];
 	
 }Mpianatra;
 
