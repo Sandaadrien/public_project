@@ -1,0 +1,9 @@
+login;adresse_mail;mot-de-passe;répertoire;shell
+sanda ;sanda@gmail.com ; 67 ; /home/sanda ; /bin/bash
+ ; 
+toto ;toto@gmail.com ; 69 ; /home/toto ; /bin/sh
+ ; 
+titi ;titi@gmail.com ; 77 ; /home/titi ; /bin/sh
+ ; 
+tata ;tata@gmail.com ; 93 ; /home/tata ; /bin/sh
+ ; 
