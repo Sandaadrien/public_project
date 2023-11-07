@@ -1,0 +1,53 @@
+Pour pourvoir lancer ce programme , suivez les directives
+
+Puis n'oublier pas d'entrer l'utilisateur www-data dans le group d'administrateur de votre OS
+
+#sudo visudo
+
+Puis écrivez :
+
+#www-data ALL=(ALL:ALL) ALL
+
+compilation du fichier main.c , activation.c , desactivation.c
+
+#gcc main.c -o main.cgi `pkg-config --libs --cflags glib-2.0`
+#gcc activation.c -o activation.cgi
+#gcc desactiver.c -o desactiver.cgi
+
+
+Noubliez pas de faire un virtualHost
+
+#sudo touch /etc/apache2/site-availables/adrien.conf
+
+copier coller ce qui suis dans ce fichier (remplacer les noms , pour qu'ils soit adequat avec votre arborescence)
+
+<VirtualHost *:80>
+
+        ServerName www.adrien.com
+
+        ServerAdmin sandaniainaadrien@gmail.com
+        DocumentRoot /home/sanda/adrien
+        Alias "/prog" "/home/sanda/adrien"
+        <Directory /home/sanda/adrien>
+                Require all granted
+        </Directory>
+        <Directory /home/sanda/adrien>
+                Require all granted
+                Options +ExecCGI
+                AddHandler cgi-script .cgi .p1
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+#a2ensite adrien.conf
+#systemctl reload apache2
+
+#vim /etc/hosts
+copier s'y : 123.0.0.1  www.adrien.com
+
+#chmod 777 <nom de votre repertoire> #(depuis votre repértoire par défaut jusqu'a aux repertoire contenant ce fichier main.cgi)
+
+puis tapper dans votre navigateur www.adrien.com/prog/main.cgi
